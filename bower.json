@@ -1,0 +1,32 @@
+{
+  "name": "ace-snippet-extensions",
+  "version": "0.0.0",
+  "authors": [
+    "Shad Beard"
+  ],
+  "description": "A bower package that makes it easier to implement your own custom snippets for the ace editor framework'",
+  "main": "snippets.js",
+  "keywords": [
+    "ace",
+    "editor",
+    "ace",
+    "extensions",
+    "snippet",
+    "snippets",
+    "ace",
+    "snippets",
+    "ace",
+    "snippet",
+    "ace",
+    "editor"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "test",
+    "tests"
+  ]
+}
