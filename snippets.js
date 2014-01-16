@@ -4,21 +4,24 @@
 
 // Is ace a psuedo global? i.e. as should be loaded before this file is includes
 // This file should be included before the js file in which your editor is defined
-var ace_snippets = function(ace, editor, mode, snippetText) {
+var ace_snippets = function(editor, session, mode, snippetText) {
 	ace.require('ace/ext/language_tools');
 	editor.setOptions({
-		enableBasicAutocompletions: true,
+		enableBasicAutocompletion: true,
 		enableSnippets: true
 	});
 
 	var snippetManager = require("ace/snippets").snippetManager;
 
-	var id = editor.getSession().$mode.$id || "";
+	var id = session.$mode.$id || "";
 	var m = snippetManager.files[id];
-
+	console.log(m);
+	console.log(mode);
 	m.scope = mode;
 	m.snippetText = snippetText;
-	m.snippets = snippetManager.parseSnippetFile(m.snippets, m.scope);
+	console.log(m.snippetText);
+	m.snippets = snippetManager.parseSnippetFile(m.snippetText, m.scope);
+	console.log(m.snippets)
 	snippetManager.register(m.snippets, m.scope);
 };
 
