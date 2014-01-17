@@ -15,13 +15,10 @@ var ace_snippets = function(editor, session, mode, snippetText) {
 
 	var id = session.$mode.$id || "";
 	var m = snippetManager.files[id];
-	console.log(m);
-	console.log(mode);
+	
 	m.scope = mode;
 	m.snippetText = snippetText;
-	console.log(m.snippetText);
 	m.snippets = snippetManager.parseSnippetFile(m.snippetText, m.scope);
-	console.log(m.snippets)
 	snippetManager.register(m.snippets, m.scope);
 };
 
