@@ -48,6 +48,7 @@ var snippetText = [
     "snippet log",
     "   console.log(${1:});"
 ].join(eol);
+```
 
 ### Built In Snippets
 There are some useful custom snippets that I defined for angular and ejs built in.  To use these, do this:
