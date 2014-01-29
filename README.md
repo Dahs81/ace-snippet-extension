@@ -76,11 +76,14 @@ ace_snippets(ace, editor, 'javascript', myCustomSnippetText);
 **NOTE: ** You can concat as many of these as you would like.  Just create your snippetText and add it to the myCustomSnippetText variable.
 
 ### Other functions
+
+```
 // Gets the names of each of your custom snippets
 getNames(editor, session, mode, snippetText);
 
 // Gets the string representation of the content for a give snippet
 getContent(editor, session, mode, snippetText);
+```
 
 ** Use these functions to output the names and/or content of your custom snippets, so the users of your editor will know what to type to invoke a snippet. **
 
