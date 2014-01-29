@@ -2,10 +2,41 @@
  *  
  */
 
+ace.require('ace/ext/language_tools');
+
 // Is ace a psuedo global? i.e. as should be loaded before this file is includes
 // This file should be included before the js file in which your editor is defined
 var ace_snippets = function(editor, session, mode, snippetText) {
-	ace.require('ace/ext/language_tools');
+	var snippet = setup(editor, session, mode, snippetText);
+	snippet.manager.register(snippet.m.snippet, snippet.m.scope);
+};
+
+var getNames = function (editor, session, mode, snippetText) {
+	var snippet = setup(editor, session, mode, snippetText),
+		names = [];
+
+	for (var i = 0; i < snippet.m.snippet.length; i++) {
+		names.push(snippet.m.snippet[i].name);
+	}
+
+	return names;
+};
+
+var getContent = function (editor, session, mode, snippetText) {
+	var snippet = setup(editor, session, mode, snippetText),
+		content = [];
+
+	for (var i = 0; i < snippet.m.snippet.length; i++) {
+		content.push(snippet.m.snippet[i].content);
+	}
+
+	return content;
+};
+
+/*
+ *  Helper function that sets up the snippet code
+ */
+function setup(editor, session, mode, snippetText) {
 	editor.setOptions({
 		enableBasicAutocompletion: true,
 		enableSnippets: true
@@ -18,36 +49,17 @@ var ace_snippets = function(editor, session, mode, snippetText) {
 	
 	m.scope = mode;
 	m.snippetText = snippetText;
-	m.snippets = snippetManager.parseSnippetFile(m.snippetText, m.scope);
-	snippetManager.register(m.snippets, m.scope);
-};
+	m.snippet = snippetManager.parseSnippetFile(snippetText, m.scope);
 
+	return {
+		manager: snippetManager,
+		id: id,
+		m: m
+	};
+}
 
-
-/* You should include a string such as this to overwrite the default snippets
- * This can be done either in the file you define your editor in or in another file and 
- * then included in a script tag before you the file in which are defining your editor
- */
-
+// End of line character
 var eol = '\n';
-
-// If you go this, be sure to include the eol newline character
-var exampleSnippetText1 = [
-	"snippet test",
-	"	var test = function() {",
-	"		return \"test\"",
-	"	}",
-	""
-].join(eol);
-
-// OR
-
-var exampleSnippetText2 = "snippet test\n\
-	var test = function() {\n\
-		return \"test\"\n\
-	}\n";
-
-
 
 /*
  *  Custom snippet text strings that you can use in your implementation

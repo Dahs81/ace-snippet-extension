@@ -48,7 +48,17 @@ var snippetText = [
     "snippet log",
     "   console.log(${1:});"
 ].join(eol);
+
+OR
+
+// As a string
+var snippetText = "snippet test\n\
+    var test = function() {\n\
+        return \"test\"\n\
+    }\n";
 ```
+
+** I recommend the method using an array and joining with eol **
 
 ### Built In Snippets
 There are some useful custom snippets that I defined for angular and ejs built in.  To use these, do this:
@@ -64,6 +74,15 @@ ace_snippets(ace, editor, 'javascript', myCustomSnippetText);
 ```
 
 **NOTE: ** You can concat as many of these as you would like.  Just create your snippetText and add it to the myCustomSnippetText variable.
+
+### Other functions
+// Gets the names of each of your custom snippets
+getNames(editor, session, mode, snippetText);
+
+// Gets the string representation of the content for a give snippet
+getContent(editor, session, mode, snippetText);
+
+** Use these functions to output the names and/or content of your custom snippets, so the users of your editor will know what to type to invoke a snippet. **
 
 ### Sample Project
 I created a sample node project that using this module.  Check it out at:
