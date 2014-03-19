@@ -42,7 +42,7 @@ function setup(editor, session, mode, snippetText) {
 		enableSnippets: true
 	});
 
-	var snippetManager = require("ace/snippets").snippetManager;
+	var snippetManager = ace.require("ace/snippets").snippetManager;
 
 	var id = session.$mode.$id || "";
 	var m = snippetManager.files[id];
