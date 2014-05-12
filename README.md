@@ -6,6 +6,8 @@ This is a simple plugin that makes ace snippets easy and extendable.
 The 1.1.1 stable version of ace and ace-builds do not have support for snippets or autocompletion.  I recommend using a specific commit rather than pointing to master.  If the master branch ever changes it's API, this could break your code.
 I installed:
 
+**UPDATE: **This works with ace-builds#~1.1.3
+
 ```
 bower install --save ace-builds#b2f8bf1e745250596afea5b39c70b94421af906d
 ```
