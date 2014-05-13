@@ -28,7 +28,8 @@ git clone https://github.com/Dahs81/ace-snippet-extension.git
 First, make sure that you reference the snippets.js file in your html page
 
 ```
-<script type="text/javascript" src="/bower/ace/ace.js"></script>
+<script type="text/javascript" src="/bower/ace-builds/src/ace.js"></script>
+<script type="text/javascript" src="/bower/ace-builds/src/ext-language_tools.js"></script>
 <script type="text/javascript" src="/bower/ace-snippet-extension/snippets.js"></script>
 <script type="text/javascript" src="/js/editor.js"></script>
 ```
